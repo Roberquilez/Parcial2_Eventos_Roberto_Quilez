@@ -2,17 +2,24 @@ package com.example.parcial2_eventos_roberto_quilez
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
 
 @Composable
 fun AppNavigation() {
     val navController: NavHostController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "farmacias") {
+    NavHost(navController = navController, startDestination = "menu") {
+        composable("menu") {
+            MenuScreen(navController)
+        }
+        composable("horarios") {
+            HorariosScreen()
+        }
+        composable("eventos") {
+            EventosScreen()
+        }
         composable("farmacias") {
             FarmaciasScreen { farmacia ->
                 navController.navigate(
@@ -21,12 +28,7 @@ fun AppNavigation() {
             }
         }
         composable(
-            "mapa/{nombre}/{latitud}/{longitud}",
-            arguments = listOf(
-                navArgument("nombre") { type = NavType.StringType },
-                navArgument("latitud") { type = NavType.FloatType },
-                navArgument("longitud") { type = NavType.FloatType }
-            )
+            "mapa/{nombre}/{latitud}/{longitud}"
         ) { backStackEntry ->
             val nombre = backStackEntry.arguments?.getString("nombre") ?: ""
             val latitud = backStackEntry.arguments?.getFloat("latitud")?.toDouble() ?: 0.0
@@ -36,3 +38,4 @@ fun AppNavigation() {
         }
     }
 }
+

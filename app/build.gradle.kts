@@ -11,7 +11,6 @@ android {
     defaultConfig {
         applicationId = "com.example.parcial2_eventos_roberto_quilez"
         minSdk = 30
-        //noinspection EditedTargetSdkVersion
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -41,7 +40,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
