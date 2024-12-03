@@ -17,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun FarmaciasScreen(onFarmaciaClick: (Farmacia) -> Unit) {
+fun FarmaciasScreen() {
     val db = FirebaseFirestore.getInstance()
     val farmacias = remember { mutableStateListOf<Farmacia>() }
 
@@ -58,7 +58,7 @@ fun FarmaciaItem(farmacia: Farmacia, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
-            painter = painterResource(id = R.drawable.ic_pharmacy), // Requiere ícono en /res/drawable
+            painter = painterResource(id = R.drawable.farmacia),
             contentDescription = "Icono farmacia",
             modifier = Modifier.size(40.dp)
         )
@@ -70,8 +70,12 @@ fun FarmaciaItem(farmacia: Farmacia, onClick: () -> Unit) {
     }
 }
 
+fun onFarmaciaClick(farmacia: Farmacia) {
+    Log.d("FarmaciaClick", "Farmacia seleccionada: ${farmacia.nombre}")
+}
+
 @Preview(showBackground = true)
 @Composable
 fun PreviewFarmaciasScreen() {
-    FarmaciasScreen(onFarmaciaClick = {})
+    FarmaciasScreen()
 }

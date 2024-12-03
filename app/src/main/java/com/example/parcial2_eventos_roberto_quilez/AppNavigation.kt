@@ -21,11 +21,7 @@ fun AppNavigation() {
             EventosScreen()
         }
         composable("farmacias") {
-            FarmaciasScreen { farmacia ->
-                navController.navigate(
-                    "mapa/${farmacia.nombre}/${farmacia.latitud}/${farmacia.longitud}"
-                )
-            }
+            FarmaciasScreen()
         }
         composable(
             "mapa/{nombre}/{latitud}/{longitud}"

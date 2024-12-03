@@ -5,8 +5,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun MenuScreen(navController: NavController) {
@@ -17,22 +19,34 @@ fun MenuScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
         Button(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
             onClick = { navController.navigate("horarios") }
         ) {
             Text("Gestión de horarios")
         }
         Button(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
             onClick = { navController.navigate("eventos") }
         ) {
             Text("Gestión de eventos")
         }
         Button(
-            modifier = Modifier.fillMaxWidth().padding(8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
             onClick = { navController.navigate("farmacias") }
         ) {
             Text("Farmacias cercanas")
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MenuScreenPreview() {
+    MenuScreen(navController = rememberNavController())
 }
