@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.painterResource
 import com.google.firebase.firestore.FirebaseFirestore
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun FarmaciasScreen(onFarmaciaClick: (Farmacia) -> Unit) {
@@ -67,4 +68,10 @@ fun FarmaciaItem(farmacia: Farmacia, onClick: () -> Unit) {
             Text(text = farmacia.telefono, style = MaterialTheme.typography.bodyMedium)
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewFarmaciasScreen() {
+    FarmaciasScreen(onFarmaciaClick = {})
 }

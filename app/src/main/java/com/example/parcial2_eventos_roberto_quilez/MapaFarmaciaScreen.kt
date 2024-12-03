@@ -6,6 +6,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.MapView
@@ -31,4 +32,10 @@ fun MapaFarmaciaScreen(nombre: String, latitud: Double, longitud: Double) {
         modifier = Modifier.fillMaxSize(),
         update = { mapView.onResume() }
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewMapaFarmaciaScreen() {
+    MapaFarmaciaScreen(nombre = "Ejemplo de Farmacias", latitud = 40.416775, longitud = -3.703790)
 }

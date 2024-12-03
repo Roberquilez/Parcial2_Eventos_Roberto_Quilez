@@ -6,12 +6,13 @@ plugins {
 
 android {
     namespace = "com.example.parcial2_eventos_roberto_quilez"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.parcial2_eventos_roberto_quilez"
         minSdk = 30
-        targetSdk = 34
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
